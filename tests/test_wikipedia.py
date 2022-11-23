@@ -1,5 +1,4 @@
 import allure
-from python_autotest_lesson_android_studio.components import search_in_wikipedia, verify_content_found
 from python_autotest_lesson_android_studio import app
 from selene import have, be
 from allure_commons._allure import step
@@ -23,7 +22,7 @@ def test_wikipedia_search():
         browser.element((AppiumBy.ID, 'org.wikipedia.alpha:id/view_page_header_image')).should(be.visible)
 
     with step('Search text from inside page'):
-        browser.element((AppiumBy.ACCESSIBILITY_ID, 'Search Wikipedia')).tap()
+        browser.element((AppiumBy.ID, 'org.wikipedia.alpha:id/page_toolbar_button_search')).tap()
         browser.element((AppiumBy.ID, 'org.wikipedia.alpha:id/search_src_text')).type('2022')
 
     with step('Opening 2 item in search list'):
